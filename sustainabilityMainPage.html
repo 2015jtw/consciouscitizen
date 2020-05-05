@@ -1,0 +1,101 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+
+	<title> Mapping Sustainability </title>
+
+	<!-- link css -->
+	<link rel="stylesheet" href="sustainabilityMainPage.css">
+
+
+	<!-- link bootstrap 4 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- add leaflet cdn -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+	<!-- add mapbox into head -->
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+
+	<!-- link fontawesome icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div class="nav navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"> <i class="fab fa-envira"></i> Conscious Citizen</a>
+
+        </div>
+
+    </div>
+
+	<div class="container">
+
+		<h1 class="text-center my-3"> Mapping Sustainable Organizations and Processes </h1>
+
+		<p class="text-center"> This page aims to improve access to verifiable information of sustainable organizations and practices found throughout Montreal. This platform will provide the placename, location and a sustainability rating for each of these organizations.  
+		</p>
+
+		<div id="map"> </div>
+
+		
+
+	</div>
+
+	<script>
+
+		//this is how im going to do the mapping. only need one map now, have ability to switch between different layers --> https://leafletjs.com/examples/layers-control/
+
+		//maybe useful too --> https://leafletjs.com/examples/wms/wms.html
+		
+		var restoMap = L.map('map').setView([45.502, -73.592], 12.58);
+
+		L.tileLayer("https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=gLW0P8w0qj3QO5jq0fF4", {
+			attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+		}).addTo(restoMap);
+
+
+		//pretend ethically-conscious restos as geoJSON
+
+		var groceryStore = {"type": "FeatureCollection","features": [{"type": "Feature","properties": {"marker-size": "medium","marker-symbol": "","type_of_Essential_Service": "Grocery Store","Name": "Metro"},"geometry": {"type": "Point","coordinates": [-73.57409298419952,45.51004617321204]}},{"type": "Feature","properties": {"marker-size": "medium","marker-symbol": "","type_of_Essential_Service": "Grocery Store","Name": "Provego"},"geometry": {"type": "Point","coordinates": [-73.57215106487274,45.50911385924929]}},{"type": "Feature","properties": {"marker-size": "medium","marker-symbol": "","type_of_Essential_Service": "Grocery Store","Name": "Bonjour Supermarche"},"geometry": {"type": "Point","coordinates": [-73.58297646045685,45.492179147684055]}},{"type": "Feature","properties": {"marker-size": "medium","marker-symbol": "","type_of_Essential_Service": "Grocery Store","Name": "Marche Atwater"},"geometry": {"type": "Point","coordinates": [-73.57693076133728,45.47951238472933]}},{"type": "Feature","properties": {"marker-size": "medium","marker-symbol": "","type_of_Essential_Service": "Grocery Store","Name": "Sabor Latino"},"geometry": {"type": "Point","coordinates": [-73.58450263738632,45.51950941368333]}}]}
+
+
+		//initialized green marker for grocery store icon
+		var greenmarker = L.icon({
+			iconUrl: 'https://image.flaticon.com/icons/svg/1777/1777567.svg',
+			iconSize: [64, 74],
+			iconAnchor: [32, 74],
+		});
+
+
+		//set all grocery stores icon to greenmarker
+		L.geoJSON(groceryStore, {
+			pointToLayer: function(feature, latlng) {
+				return L.marker(latlng, {
+					icon: greenmarker
+				})
+			}
+		}).bindPopup('Grocery Store').addTo(restoMap);
+
+
+
+
+	</script>
+
+
+
+
+</body>
+
+
+
+
+
+</html>
