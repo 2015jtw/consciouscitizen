@@ -1,4 +1,10 @@
 #map{
 	height: 550px;
 	border: 1px solid black;
+	margin-bottom: 5%;
 	}
+
+.container{
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 20px;
+}
