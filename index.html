@@ -18,19 +18,15 @@
 
 	<style>
 
-		#header img{
-			opacity: 100%;
-			height: 7rem;
-		}
-
 		#header .jumbotron{
 			margin-bottom: 5%;
 		}
 		
 		body{
-			background-image: url(city.jpeg);
+			background-image: url(map3.jpg);
 			background-repeat: no-repeat;
 			background-size: cover;
+			background-attachment: fixed;
 			font-family: 'Cormorant Garamond', serif;
 			font-size: 20px;
 			
@@ -44,7 +40,7 @@
 
 		.jumbotron{
 			color: black;
-			opacity: 75%;
+			opacity: 95%;
 
 		}
 
@@ -87,6 +83,18 @@ background: linear-gradient(63deg, rgba(208,213,206,1) 0%, rgba(160,195,194,1) 5
 			border-radius: 50%;
 		}
 
+
+
+		img{
+			height: 8rem;
+		}
+
+		#logo{
+			height: 3rem;	
+		}
+
+
+
 	</style>
 
 
@@ -98,7 +106,7 @@ background: linear-gradient(63deg, rgba(208,213,206,1) 0%, rgba(160,195,194,1) 5
 
 	<div class="nav navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"> <i class="fab fa-envira"></i> Conscious Citizen</a>
+            <a class="navbar-brand" href="#" id="newLogo"> <img src="newLogo.svg" alt="" id="logo"> Conscious Citizen</a>
 
         </div>
 
@@ -106,10 +114,10 @@ background: linear-gradient(63deg, rgba(208,213,206,1) 0%, rgba(160,195,194,1) 5
 
     <div class="jumbotron text-center py-1" id="header">
     
-		<img src="ConsciousCitizenLogo.svg" alt="" class="">
-    	<h4 class="py-1">Our Vision for this platform is to provide individuals with greater access to accurate information regarding international participatory democratic processes and local Montreal sustainability processes</h4>
+		
+    	<h4 class="py-4">Our Vision for this platform is to provide individuals with greater access to accurate information regarding international participatory democratic processes and local Montreal sustainability processes</h4>
 
-
+		
     	
     	
     </div>
@@ -122,18 +130,19 @@ background: linear-gradient(63deg, rgba(208,213,206,1) 0%, rgba(160,195,194,1) 5
 			<div class="jumbotron text-center">
 				
 				<a href="sustainabilityMainPage.html" class="text-secondary"> 
-					<i class="fas fa-map-marked fa-5x"> </i>
+					<img src="realSustainable.svg" alt="">
 				</a>
 				
-				<p class="d-lg my-3"> Sustainability Initiatives </p>
+				<p class="d-lg my-1"> Sustainability Initiatives </p>
 				
 			</div>
 
 			<div class="jumbotron text-center">
 				<a href="#" class="text-secondary">
-					<i class="fas fa-democrat fa-5x"></i>
+					<img src="realElectoral.svg" alt="">
+
 				</a>
-				<p class="d-4 my-3"> Participatory Democracy</p>
+				<p class="d-4 my-1"> Participatory Democracy</p>
 
 			</div>
 				
